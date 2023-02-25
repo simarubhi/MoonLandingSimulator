@@ -10,7 +10,7 @@
 3. Animate the Background Done
     use concept from https://codepen.io/studiojvla/pen/qVbQqW
     
-4. Create the stats corner UI
+4. Create the stats corner UI Done
 
 5. Create the moving parts
     All the stats are shown in the corner
@@ -23,3 +23,13 @@
     try again
 
 7. If time create a login system where results are saved
+
+
+
+
+4.-----
+    - Create start menu, player can input fields via a slider, start menu covers screen
+    - Tell the users the rules
+    - set constants where altitude is decreased, velocity increased
+    - Create a mini rocket showing how far away you are
+    - At certain altitude bring moon in and the rocket either blows up or lands safely
