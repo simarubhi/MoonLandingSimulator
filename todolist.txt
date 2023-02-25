@@ -1,0 +1,23 @@
+1. Create assets Done
+    Background
+    Rocket Ship
+    fire
+    Moon
+
+2. Animate Rocket Done
+    Make fire move periodically
+
+3. Animate the Background
+    
+4. Create the stats corner
+
+5. Create the moving parts
+    The rocket moves down (the background only moves)
+    One alt reaches a certain point moon comes up
+
+6. Create the end
+    Win or lose
+    Grapn of results
+    try again
+
+7. If time create a login system where results are saved
