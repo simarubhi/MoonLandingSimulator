@@ -11,7 +11,9 @@ const startBtn = startScreen.querySelector('.start-button');
 // Play screen elements
 const playScreen = document.querySelector('.play-screen');
 const backGroundContainer = playScreen.querySelector('.background-container');
+backGroundContainer.style.webkitAnimationPlayState = 'paused';
 const spaceContainer = playScreen.querySelector('.space-container');
+spaceContainer.style.webkitAnimationPlayState = 'paused';
 const nonFireRocket = playScreen.querySelector('.rocket.no-fire');
 const fireRocket = playScreen.querySelector('.rocket.fire');
 const fuelInput = playScreen.querySelector('.fuel-input');
@@ -74,7 +76,6 @@ const initPlayBtn = () => {
 
 // Start the game loop
 const playGame = () => {
-	console.log('game played');
 	if (fuel <= 0) {
 		finishGame();
 		return;
@@ -83,9 +84,7 @@ const playGame = () => {
 	if (altitude <= 0) {
 		gameEnded();
 	} else {
-		console.log('else function');
 		let userFuelInput = fuelInput.value;
-		console.log(userFuelInput);
 		if (userFuelInput == null || userFuelInput == undefined) return;
 
 		if (fuel - fuelInput <= 0) {
@@ -99,8 +98,8 @@ const playGame = () => {
 		}
 
 		advanceSecond();
-		if (altitude <= 0) gameEnded();
-		if (fuel <= 0) gameEnded();
+		if (altitude <= 0) finishGame();
+		if (fuel <= 0) finishGame();
 	}
 };
 
@@ -111,18 +110,41 @@ const thrust = () => {
 
 const finishGame = () => {
 	fuelSubmit.removeEventListener('click', playGame);
-	console.log('finishing game');
 	while (altitude > 0) advanceSecond();
 	gameEnded();
 };
 
 const advanceSecond = () => {
 	velocity += GRAVITY_VELOCITY;
-	console.log('velocity: ' + velocity);
 	altitude -= velocity;
 	updateStats();
+	backgroundTransition();
+};
+
+let animationSpeed;
+const backgroundTransition = () => {
+	if (velocity == 0) return;
+	animationSpeed = Math.abs(velocity * 10);
+
+	let down = velocity > 0;
+
+	if (down) {
+		spaceContainer.style.animationDirection = 'normal';
+	} else {
+		spaceContainer.style.animationDirection = 'reverse';
+	}
+
+	spaceContainer.style.webkitAnimationPlayState = 'running';
+
+	setTimeout(() => {
+		spaceContainer.style.webkitAnimationPlayState = 'paused';
+	}, animationSpeed);
 };
 
 const gameEnded = () => {
-	alert('game done;');
+	if (velocity < 5) {
+		console.log('you win!');
+	} else {
+		console.log('you lose!;');
+	}
 };

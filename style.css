@@ -120,11 +120,15 @@ img {
   right: 0;
   width: 100vw;
   height: 200vh;
+  -webkit-animation: backgroundScroll 5s linear forwards;
+          animation: backgroundScroll 5s linear forwards;
   z-index: -100;
 }
 .container .play-screen .background-container .space-container {
   width: 100vw;
   height: 200vh;
+  -webkit-animation: backgroundScroll 5s linear infinite;
+          animation: backgroundScroll 5s linear infinite;
 }
 .container .play-screen .background-container .space-container .background {
   width: 100%;
@@ -247,6 +251,26 @@ img {
 }
 
 @keyframes backgroundScroll {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+}
+@-webkit-keyframes moonScroll {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+}
+@keyframes moonScroll {
   0% {
     -webkit-transform: translateY(0);
             transform: translateY(0);

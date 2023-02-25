@@ -106,13 +106,13 @@ img {
 			right: 0;
 			width: 100vw;
 			height: 200vh;
-			// animation: backgroundScroll 5s linear forwards; // This will be played when the player is almost done
+			animation: backgroundScroll 5s linear forwards; // This will be played when the player is almost done
 			z-index: -100;
 
 			.space-container {
 				width: 100vw;
 				height: 200vh;
-				// animation: backgroundScroll 5s linear infinite; // This is played while player is coming
+				animation: backgroundScroll 5s linear infinite; // This is played while player is coming
 
 				.background {
 					width: 100%;
@@ -222,6 +222,16 @@ img {
 }
 
 @keyframes backgroundScroll {
+	0% {
+		transform: translateY(0);
+	}
+
+	100% {
+		transform: translateY(-50%);
+	}
+}
+
+@keyframes moonScroll {
 	0% {
 		transform: translateY(0);
 	}
