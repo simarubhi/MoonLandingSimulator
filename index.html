@@ -9,34 +9,82 @@
 	</head>
 	<body>
 		<main class="container">
-			<div class="rocket-conatiner">
-				<img
-					class="rocket no-fire"
-					src="assets/rocket-nofire.png"
-					alt="Rocket without fire"
-				/>
+			<div class="start-screen">
+				<h1 class="heading">Welcome To The Moon Landing Simulator</h1>
 
-				<img
-					class="rocket fire"
-					src="assets/rocket.webp"
-					alt="Rocket with fire"
-				/>
+				<h2 class="rules">Land with a velocity of less than 5m/s</h2>
+
+				<div class="options-container">
+					<div class="alt setting-container">
+						<label class="label"
+							>Set Altitude: <span class="alt-slider-text"></span>
+							<input
+								class="slider alt-slider"
+								type="range"
+								min="200"
+								max="2000"
+							/>
+						</label>
+					</div>
+					<div class="vel setting-container">
+						<label class="label"
+							>Set Velocity: <span class="vel-slider-text"></span>
+
+							<input
+								class="slider vel-slider"
+								type="range"
+								min="0"
+								max="80"
+							/>
+						</label>
+					</div>
+					<div class="fuel setting-container">
+						<label class="label"
+							>Set Fuel: <span class="fuel-slider-text"></span>
+
+							<input
+								class="slider fuel-slider"
+								type="range"
+								min="10"
+								max="1000"
+							/>
+						</label>
+					</div>
+				</div>
+
+				<button class="start-button" type="button">Start</button>
 			</div>
-			<div class="background-container">
-				<img class="moon" src="assets/moon.png" alt="Moon" />
-				<div class="space-container">
+
+			<div class="play-screen">
+				<div class="rocket-conatiner">
 					<img
-						class="background"
-						src="assets/spacebackground.jpg"
-						alt="Background"
+						class="rocket no-fire"
+						src="assets/rocket-nofire.png"
+						alt="Rocket without fire"
+					/>
+
+					<img
+						class="rocket fire"
+						src="assets/rocket.webp"
+						alt="Rocket with fire"
 					/>
 				</div>
-			</div>
+				<div class="background-container">
+					<img class="moon" src="assets/moon.png" alt="Moon" />
+					<div class="space-container">
+						<img
+							class="background"
+							src="assets/spacebackground.jpg"
+							alt="Background"
+						/>
+					</div>
+				</div>
 
-			<div class="stats-container">
-				<span class="alt stat-text">Altitude: 0m</span>
-				<span class="vel stat-text">Velocity: 0m/s</span>
-				<span class="fuel stat-text">Fuel: 0g</span>
+				<div class="stats-container">
+					<span class="alt stat-text">Altitude: 0m</span>
+					<span class="vel stat-text">Velocity: 0m/s</span>
+					<span class="fuel stat-text">Fuel: 0g</span>
+				</div>
 			</div>
 		</main>
 		<script src="scripts/main.js"></script>

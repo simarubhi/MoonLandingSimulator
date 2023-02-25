@@ -30,6 +30,8 @@
 4.-----
     - Create start menu, player can input fields via a slider, start menu covers screen
     - Tell the users the rules
-    - set constants where altitude is decreased, velocity increased
+    - set constants where altitude is decreased, velocity increased, gravity
+    - Background speed and direction relative to the velocity
     - Create a mini rocket showing how far away you are
     - At certain altitude bring moon in and the rocket either blows up or lands safely
+    - Create warning messages

@@ -21,77 +21,154 @@ img {
 	height: 100vh;
 	overflow: hidden;
 
-	.background-container {
-		position: absolute;
-		top: 0;
-		right: 0;
+	.start-screen {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 50px;
 		width: 100vw;
-		height: 200vh;
-		// animation: backgroundScroll 5s linear forwards; // This will be played when the player is almost done
-		z-index: -100;
+		height: 100vh;
+		background-color: rgb(15, 15, 58);
 
-		.space-container {
-			width: 100vw;
-			height: 200vh;
-			// animation: backgroundScroll 5s linear infinite; // This is played while player is coming
+		.heading {
+			font-size: 2.5rem;
+			color: white;
+		}
 
-			.background {
+		.rules {
+			font-size: 1.5rem;
+			color: gray;
+			text-decoration: underline;
+		}
+
+		.options-container {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+			gap: 50px;
+			min-width: 800px;
+			background-color: rgba(32, 32, 32, 0.9);
+			border-radius: 5px;
+
+			.setting-container {
 				width: 100%;
-				height: 100%;
-				z-index: -1;
+				padding: 15px;
+
+				.label {
+					display: flex;
+					justify-content: space-between;
+					width: 100%;
+					color: white;
+					font-size: 2rem;
+
+					.slider {
+						width: 60%;
+
+						&:hover,
+						&:active,
+						&:focus {
+							cursor: pointer;
+						}
+					}
+				}
 			}
 		}
 
-		.moon {
+		.start-button {
+			font-size: 1.5rem;
+			color: black;
+			padding: 15px 25px;
+			background-color: lightGreen;
+			border-radius: 5px;
+			border: none;
+			transition-duration: 100ms;
+
+			&:hover,
+			&:active,
+			&:focus {
+				cursor: pointer;
+				transform: scale(1.2);
+			}
+		}
+	}
+
+	.play-screen {
+		display: none;
+
+		.background-container {
 			position: absolute;
-			bottom: 0;
+			top: 0;
 			right: 0;
 			width: 100vw;
+			height: 200vh;
+			// animation: backgroundScroll 5s linear forwards; // This will be played when the player is almost done
+			z-index: -100;
+
+			.space-container {
+				width: 100vw;
+				height: 200vh;
+				// animation: backgroundScroll 5s linear infinite; // This is played while player is coming
+
+				.background {
+					width: 100%;
+					height: 100%;
+					z-index: -1;
+				}
+			}
+
+			.moon {
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				width: 100vw;
+			}
 		}
-	}
 
-	.rocket-conatiner {
-		position: absolute;
-		top: 50%;
-		right: 50%;
-		transform: translate(50%, -50%);
-		width: 300px;
-		height: 300px;
-		z-index: 10;
-
-		.rocket {
-			width: 100%;
-			height: 100%;
-		}
-
-		.no-fire {
+		.rocket-conatiner {
 			position: absolute;
-			top: 0;
-			right: 0;
+			top: 50%;
+			right: 50%;
+			transform: translate(50%, -50%);
+			width: 300px;
+			height: 300px;
+			z-index: 10;
+
+			.rocket {
+				width: 100%;
+				height: 100%;
+			}
+
+			.no-fire {
+				position: absolute;
+				top: 0;
+				right: 0;
+			}
+
+			.fire {
+				position: absolute;
+				top: 0;
+				right: 0;
+			}
 		}
 
-		.fire {
-			position: absolute;
-			top: 0;
-			right: 0;
-		}
-	}
+		.stats-container {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			padding: 15px;
+			margin: 15px;
+			width: fit-content;
+			background-color: rgba(99, 99, 99, 0.9);
+			border-radius: 5px;
+			z-index: 100;
 
-	.stats-container {
-		display: flex;
-		flex-direction: column;
-		gap: 10px;
-		padding: 15px;
-		margin: 15px;
-		width: fit-content;
-		background-color: rgba(99, 99, 99, 0.9);
-		border-radius: 5px;
-		z-index: 100;
-
-		.stat-text {
-			display: inline-block;
-			font-size: 2.5rem;
-			color: white;
+			.stat-text {
+				display: inline-block;
+				font-size: 2.5rem;
+				color: white;
+			}
 		}
 	}
 }

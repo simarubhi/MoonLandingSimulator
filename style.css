@@ -24,7 +24,95 @@ img {
   height: 100vh;
   overflow: hidden;
 }
-.container .background-container {
+.container .start-screen {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 50px;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(15, 15, 58);
+}
+.container .start-screen .heading {
+  font-size: 2.5rem;
+  color: white;
+}
+.container .start-screen .rules {
+  font-size: 1.5rem;
+  color: gray;
+  text-decoration: underline;
+}
+.container .start-screen .options-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 50px;
+  min-width: 800px;
+  background-color: rgba(32, 32, 32, 0.9);
+  border-radius: 5px;
+}
+.container .start-screen .options-container .setting-container {
+  width: 100%;
+  padding: 15px;
+}
+.container .start-screen .options-container .setting-container .label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  color: white;
+  font-size: 2rem;
+}
+.container .start-screen .options-container .setting-container .label .slider {
+  width: 60%;
+}
+.container .start-screen .options-container .setting-container .label .slider:hover, .container .start-screen .options-container .setting-container .label .slider:active, .container .start-screen .options-container .setting-container .label .slider:focus {
+  cursor: pointer;
+}
+.container .start-screen .start-button {
+  font-size: 1.5rem;
+  color: black;
+  padding: 15px 25px;
+  background-color: lightGreen;
+  border-radius: 5px;
+  border: none;
+  -webkit-transition-duration: 100ms;
+       -o-transition-duration: 100ms;
+          transition-duration: 100ms;
+}
+.container .start-screen .start-button:hover, .container .start-screen .start-button:active, .container .start-screen .start-button:focus {
+  cursor: pointer;
+  -webkit-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+          transform: scale(1.2);
+}
+.container .play-screen {
+  display: none;
+}
+.container .play-screen .background-container {
   position: absolute;
   top: 0;
   right: 0;
@@ -32,22 +120,22 @@ img {
   height: 200vh;
   z-index: -100;
 }
-.container .background-container .space-container {
+.container .play-screen .background-container .space-container {
   width: 100vw;
   height: 200vh;
 }
-.container .background-container .space-container .background {
+.container .play-screen .background-container .space-container .background {
   width: 100%;
   height: 100%;
   z-index: -1;
 }
-.container .background-container .moon {
+.container .play-screen .background-container .moon {
   position: absolute;
   bottom: 0;
   right: 0;
   width: 100vw;
 }
-.container .rocket-conatiner {
+.container .play-screen .rocket-conatiner {
   position: absolute;
   top: 50%;
   right: 50%;
@@ -58,21 +146,21 @@ img {
   height: 300px;
   z-index: 10;
 }
-.container .rocket-conatiner .rocket {
+.container .play-screen .rocket-conatiner .rocket {
   width: 100%;
   height: 100%;
 }
-.container .rocket-conatiner .no-fire {
+.container .play-screen .rocket-conatiner .no-fire {
   position: absolute;
   top: 0;
   right: 0;
 }
-.container .rocket-conatiner .fire {
+.container .play-screen .rocket-conatiner .fire {
   position: absolute;
   top: 0;
   right: 0;
 }
-.container .stats-container {
+.container .play-screen .stats-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -90,7 +178,7 @@ img {
   border-radius: 5px;
   z-index: 100;
 }
-.container .stats-container .stat-text {
+.container .play-screen .stats-container .stat-text {
   display: inline-block;
   font-size: 2.5rem;
   color: white;
