@@ -9,8 +9,48 @@
   font-size: 16px;
 }
 
-.container .background {
+.container {
+  position: relative;
   width: 100vw;
-  height: 200vw;
-  background: repeat url("../assets/spacebackground.webp");
+  height: 100vh;
+}
+.container .background-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 200vh;
+  overflow: hidden;
+}
+.container .background-container .background {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.container .background-container .moon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+}
+.container .rocket-conatiner {
+  margin: auto;
+  width: 512px;
+  height: 512px;
+  z-index: 10;
+  position: relative;
+}
+.container .rocket-conatiner .no-fire {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 512px;
+  height: 512px;
+}
+.container .rocket-conatiner .fire {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 512px;
+  height: 512px;
 }

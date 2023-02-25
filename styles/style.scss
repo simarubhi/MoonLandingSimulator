@@ -9,9 +9,53 @@
 }
 
 .container {
-	.background {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+
+	.background-container {
+		position: absolute;
+		top: 0;
+		right: 0;
 		width: 100vw;
-		height: 200vw;
-		background: repeat url('../assets/spacebackground.webp');
+		height: 200vh;
+		overflow: hidden;
+
+		.background {
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+		}
+
+		.moon {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			width: 100%;
+		}
+	}
+
+	.rocket-conatiner {
+		margin: auto;
+		width: 512px;
+		height: 512px;
+		z-index: 10;
+		position: relative;
+
+		.no-fire {
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 512px;
+			height: 512px;
+		}
+
+		.fire {
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 512px;
+			height: 512px;
+		}
 	}
 }
