@@ -6,7 +6,9 @@
 	box-sizing: border-box;
 }
 
-:root {
+:root,
+input,
+button {
 	font-size: 16px;
 	font-family: 'Roboto', sans-serif;
 }
@@ -23,6 +25,7 @@ img {
 
 	.start-screen {
 		display: flex;
+		// display: none;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
@@ -168,6 +171,51 @@ img {
 				display: inline-block;
 				font-size: 2.5rem;
 				color: white;
+			}
+		}
+
+		.fuel-choice-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 20px;
+			position: absolute;
+			right: 100px;
+			bottom: 100px;
+			padding: 20px 15px;
+			background-color: rgba(99, 99, 99, 0.9);
+			border-radius: 5px;
+
+			.fuel-choice-label {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 20px;
+				color: white;
+
+				.fuel-input {
+					padding: 5px;
+					width: 100px;
+					border: none;
+					outline: none;
+
+					&:focus {
+						border: none;
+						outline: none;
+					}
+				}
+			}
+
+			.fuel-submit {
+				padding: 5px 10px;
+				font-size: 1;
+				border: none;
+
+				&:hover,
+				&:focus,
+				&:active {
+					cursor: pointer;
+				}
 			}
 		}
 	}

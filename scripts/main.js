@@ -14,16 +14,21 @@ const backGroundContainer = playScreen.querySelector('.background-container');
 const spaceContainer = playScreen.querySelector('.space-container');
 const nonFireRocket = playScreen.querySelector('.rocket.no-fire');
 const fireRocket = playScreen.querySelector('.rocket.fire');
+const fuelInput = playScreen.querySelector('.fuel-input');
+const fuelSubmit = playScreen.querySelector('.fuel-submit');
 
 // Stats container
 const altText = document.querySelector('.stat-text.alt');
 const velText = document.querySelector('.stat-text.vel');
 const fuelText = document.querySelector('.stat-text.fuel');
 
-// Variables for all screens
+// Stat variables for all screens
 let altitude = 1000;
 let velocity = 40;
 let fuel = 25;
+
+// Constants
+const GRAVITY_VELOCITY = 2; // Gravity increases velocity by 2m/s
 
 // Start screen
 altSlider.value = altitude;
@@ -51,6 +56,7 @@ startBtn.addEventListener('click', () => {
 	startScreen.style.display = 'none';
 	playScreen.style.display = 'block';
 	updateStats();
+	initPlayBtn();
 });
 
 // Play screen code
@@ -60,4 +66,63 @@ const updateStats = () => {
 	altText.innerHTML = `Altitude: ${altitude}m`;
 	velText.innerHTML = `Velocity: ${velocity}m/s`;
 	fuelText.innerHTML = `Fuel: ${fuel}g`;
+};
+
+const initPlayBtn = () => {
+	fuelSubmit.addEventListener('click', playGame);
+};
+
+// Start the game loop
+const playGame = () => {
+	console.log('game played');
+	if (fuel <= 0) {
+		finishGame();
+		return;
+	}
+
+	if (altitude <= 0) {
+		gameEnded();
+	} else {
+		console.log('else function');
+		let userFuelInput = fuelInput.value;
+		console.log(userFuelInput);
+		if (userFuelInput == null || userFuelInput == undefined) return;
+
+		if (fuel - fuelInput <= 0) {
+			for (i = 0; i < fuel; i++) {
+				thrust();
+			}
+		} else {
+			for (i = 0; i < userFuelInput; i++) {
+				thrust();
+			}
+		}
+
+		advanceSecond();
+		if (altitude <= 0) gameEnded();
+		if (fuel <= 0) gameEnded();
+	}
+};
+
+const thrust = () => {
+	fuel--;
+	velocity -= 4;
+};
+
+const finishGame = () => {
+	fuelSubmit.removeEventListener('click', playGame);
+	console.log('finishing game');
+	while (altitude > 0) advanceSecond();
+	gameEnded();
+};
+
+const advanceSecond = () => {
+	velocity += GRAVITY_VELOCITY;
+	console.log('velocity: ' + velocity);
+	altitude -= velocity;
+	updateStats();
+};
+
+const gameEnded = () => {
+	alert('game done;');
 };

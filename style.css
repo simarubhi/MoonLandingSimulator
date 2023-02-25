@@ -6,7 +6,9 @@
           box-sizing: border-box;
 }
 
-:root {
+:root,
+input,
+button {
   font-size: 16px;
   font-family: "Roboto", sans-serif;
 }
@@ -182,6 +184,55 @@ img {
   display: inline-block;
   font-size: 2.5rem;
   color: white;
+}
+.container .play-screen .fuel-choice-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+  position: absolute;
+  right: 100px;
+  bottom: 100px;
+  padding: 20px 15px;
+  background-color: rgba(99, 99, 99, 0.9);
+  border-radius: 5px;
+}
+.container .play-screen .fuel-choice-container .fuel-choice-label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+  color: white;
+}
+.container .play-screen .fuel-choice-container .fuel-choice-label .fuel-input {
+  padding: 5px;
+  width: 100px;
+  border: none;
+  outline: none;
+}
+.container .play-screen .fuel-choice-container .fuel-choice-label .fuel-input:focus {
+  border: none;
+  outline: none;
+}
+.container .play-screen .fuel-choice-container .fuel-submit {
+  padding: 5px 10px;
+  font-size: 1;
+  border: none;
+}
+.container .play-screen .fuel-choice-container .fuel-submit:hover, .container .play-screen .fuel-choice-container .fuel-submit:focus, .container .play-screen .fuel-choice-container .fuel-submit:active {
+  cursor: pointer;
 }
 
 @-webkit-keyframes backgroundScroll {
