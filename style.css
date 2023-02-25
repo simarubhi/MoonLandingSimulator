@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -7,6 +8,14 @@
 
 :root {
   font-size: 16px;
+  font-family: "Roboto", sans-serif;
+}
+
+img {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .container {
@@ -21,8 +30,7 @@
   right: 0;
   width: 100vw;
   height: 200vh;
-  -webkit-animation: backgroundScroll 5s linear forwards;
-          animation: backgroundScroll 5s linear forwards;
+  z-index: -100;
 }
 .container .background-container .space-container {
   width: 100vw;
@@ -40,11 +48,15 @@
   width: 100vw;
 }
 .container .rocket-conatiner {
-  margin: auto;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  -webkit-transform: translate(50%, -50%);
+      -ms-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
   width: 300px;
   height: 300px;
   z-index: 10;
-  position: relative;
 }
 .container .rocket-conatiner .rocket {
   width: 100%;
@@ -59,6 +71,29 @@
   position: absolute;
   top: 0;
   right: 0;
+}
+.container .stats-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+  padding: 15px;
+  margin: 15px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: rgba(99, 99, 99, 0.9);
+  border-radius: 5px;
+  z-index: 100;
+}
+.container .stats-container .stat-text {
+  display: inline-block;
+  font-size: 2.5rem;
+  color: white;
 }
 
 @-webkit-keyframes backgroundScroll {
