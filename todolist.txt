@@ -7,11 +7,13 @@
 2. Animate Rocket Done
     Make fire move periodically
 
-3. Animate the Background
+3. Animate the Background Done
+    use concept from https://codepen.io/studiojvla/pen/qVbQqW
     
-4. Create the stats corner
+4. Create the stats corner UI
 
 5. Create the moving parts
+    All the stats are shown in the corner
     The rocket moves down (the background only moves)
     One alt reaches a certain point moon comes up
 

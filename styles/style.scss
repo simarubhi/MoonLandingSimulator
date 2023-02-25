@@ -12,6 +12,7 @@
 	position: relative;
 	width: 100vw;
 	height: 100vh;
+	overflow: hidden;
 
 	.background-container {
 		position: absolute;
@@ -19,43 +20,60 @@
 		right: 0;
 		width: 100vw;
 		height: 200vh;
-		overflow: hidden;
+		animation: backgroundScroll 5s linear forwards; // This will be played when the player is almost done
 
-		.background {
-			width: 100%;
-			height: 100%;
-			z-index: -1;
+		.space-container {
+			width: 100vw;
+			height: 200vh;
+			// animation: backgroundScroll 5s linear infinite; This is played while player is coming
+
+			.background {
+				width: 100%;
+				height: 100%;
+				z-index: -1;
+			}
 		}
 
 		.moon {
 			position: absolute;
 			bottom: 0;
 			right: 0;
-			width: 100%;
+			width: 100vw;
 		}
 	}
 
 	.rocket-conatiner {
 		margin: auto;
-		width: 512px;
-		height: 512px;
+		width: 300px;
+		height: 300px;
 		z-index: 10;
 		position: relative;
+
+		.rocket {
+			width: 100%;
+			height: 100%;
+		}
 
 		.no-fire {
 			position: absolute;
 			top: 0;
 			right: 0;
-			width: 512px;
-			height: 512px;
 		}
 
 		.fire {
 			position: absolute;
 			top: 0;
 			right: 0;
-			width: 512px;
-			height: 512px;
 		}
+	}
+}
+
+@keyframes backgroundScroll {
+	0% {
+		transform: translateY(0);
+	}
+
+	100% {
+		transform: translateY(-50%);
 	}
 }
