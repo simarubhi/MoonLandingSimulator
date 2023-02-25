@@ -8,8 +8,10 @@
 	font-size: 16px;
 }
 
-.background {
-	width: 100vw;
-	height: 200vw;
-	background: repeat url('../assets/spacebackground.webp');
+.container {
+	.background {
+		width: 100vw;
+		height: 200vw;
+		background: repeat url('../assets/spacebackground.webp');
+	}
 }
