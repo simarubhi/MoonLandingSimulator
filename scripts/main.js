@@ -16,10 +16,12 @@ const spaceContainer = playScreen.querySelector('.space-container');
 spaceContainer.style.webkitAnimationPlayState = 'paused';
 const nonFireRocket = playScreen.querySelector('.rocket.no-fire');
 const fireRocket = playScreen.querySelector('.rocket.fire');
+const fuelInputContainer = playScreen.querySelector('.fuel-choice-container');
 const fuelInput = playScreen.querySelector('.fuel-input');
 const fuelSubmit = playScreen.querySelector('.fuel-submit');
 
 // Stats container
+const statsContainer = document.querySelector('.stats-container');
 const altText = document.querySelector('.stat-text.alt');
 const velText = document.querySelector('.stat-text.vel');
 const fuelText = document.querySelector('.stat-text.fuel');
@@ -115,15 +117,23 @@ const finishGame = () => {
 };
 
 const advanceSecond = () => {
+	fuelSubmit.removeEventListener('click', playGame);
 	velocity += GRAVITY_VELOCITY;
 	altitude -= velocity;
 	updateStats();
-	backgroundTransition();
+	if (altitude <= 0) {
+		endGameTransition();
+	} else {
+		backgroundTransition();
+	}
 };
 
 let animationSpeed;
 const backgroundTransition = () => {
-	if (velocity == 0) return;
+	if (velocity == 0) {
+		fuelSubmit.addEventListener('click', playGame);
+		return;
+	}
 	animationSpeed = Math.abs(velocity * 10);
 
 	let down = velocity > 0;
@@ -134,11 +144,28 @@ const backgroundTransition = () => {
 		spaceContainer.style.animationDirection = 'reverse';
 	}
 
+	nonFireRocket.style.display = 'none';
+	fireRocket.style.display = 'block';
 	spaceContainer.style.webkitAnimationPlayState = 'running';
 
 	setTimeout(() => {
 		spaceContainer.style.webkitAnimationPlayState = 'paused';
+		fuelSubmit.addEventListener('click', playGame);
+		nonFireRocket.style.display = 'block';
+		fireRocket.style.display = 'none';
 	}, animationSpeed);
+};
+
+const endGameTransition = () => {
+	nonFireRocket.style.display = 'block';
+	fireRocket.style.display = 'none';
+
+	spaceContainer.classList.add('end');
+	spaceContainer.style.webkitAnimationPlayState = 'running';
+	backGroundContainer.style.webkitAnimationPlayState = 'running';
+	nonFireRocket.classList.add('animate');
+	statsContainer.style.display = 'none';
+	fuelInputContainer.style.display = 'none';
 };
 
 const gameEnded = () => {

@@ -130,10 +130,15 @@ img {
   -webkit-animation: backgroundScroll 5s linear infinite;
           animation: backgroundScroll 5s linear infinite;
 }
+.container .play-screen .background-container .space-container.end {
+  -webkit-animation: finalbackgroundScroll 5s linear infinite !important;
+          animation: finalbackgroundScroll 5s linear infinite !important;
+}
 .container .play-screen .background-container .space-container .background {
   width: 100%;
   height: 100%;
   z-index: -1;
+  z-index: 5;
 }
 .container .play-screen .background-container .moon {
   position: absolute;
@@ -161,7 +166,12 @@ img {
   top: 0;
   right: 0;
 }
+.container .play-screen .rocket-conatiner .no-fire.animate {
+  -webkit-animation: rocketAnimation 5s linear forwards;
+          animation: rocketAnimation 5s linear forwards;
+}
 .container .play-screen .rocket-conatiner .fire {
+  display: none;
   position: absolute;
   top: 0;
   right: 0;
@@ -232,7 +242,6 @@ img {
 }
 .container .play-screen .fuel-choice-container .fuel-submit {
   padding: 5px 10px;
-  font-size: 1;
   border: none;
 }
 .container .play-screen .fuel-choice-container .fuel-submit:hover, .container .play-screen .fuel-choice-container .fuel-submit:focus, .container .play-screen .fuel-choice-container .fuel-submit:active {
@@ -260,23 +269,39 @@ img {
             transform: translateY(-50%);
   }
 }
-@-webkit-keyframes moonScroll {
+@-webkit-keyframes finalBackgroundScroll {
   0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
   }
   100% {
     -webkit-transform: translateY(-50%);
             transform: translateY(-50%);
   }
 }
-@keyframes moonScroll {
+@keyframes finalBackgroundScroll {
   0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
   }
   100% {
     -webkit-transform: translateY(-50%);
             transform: translateY(-50%);
+  }
+}
+@-webkit-keyframes rocketAnimation {
+  0% {
+    top: 0%;
+  }
+  100% {
+    top: 70%;
+  }
+}
+@keyframes rocketAnimation {
+  0% {
+    top: 0%;
+  }
+  100% {
+    top: 70%;
   }
 }
