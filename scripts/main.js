@@ -29,11 +29,19 @@ const fuelText = document.querySelector('.stat-text.fuel');
 // Final message containers
 const winContainer = document.querySelector('.win-container');
 const loseContainer = document.querySelector('.lose-container');
+const graphContainer = document.querySelector('.graph-container');
 
 // Stat variables for all screens
 let altitude = 1000;
 let velocity = 40;
 let fuel = 25;
+
+// let altitudeArr = [altitude];
+// let velocityArr = [velocity];
+// let fuelArr = [fuel];
+let altitudeArr = [];
+let velocityArr = [];
+let fuelArr = [];
 
 // Constants
 const GRAVITY_VELOCITY = 2; // Gravity increases velocity by 2m/s
@@ -74,6 +82,12 @@ const updateStats = () => {
 	altText.innerHTML = `Altitude: ${altitude}m`;
 	velText.innerHTML = `Velocity: ${velocity}m/s`;
 	fuelText.innerHTML = `Fuel: ${fuel}g`;
+
+	altitudeArr.push(altitude);
+	velocityArr.push(velocity);
+	fuelArr.push(fuel);
+
+	console.log(altitudeArr);
 };
 
 const initPlayBtn = () => {
@@ -172,10 +186,51 @@ const endGameTransition = () => {
 	fuelInputContainer.style.display = 'none';
 };
 
+// Chart.js
+let xValues = [
+	100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400,
+	1500, 1600, 1700, 1800, 1900, 2000,
+];
+
 const gameEnded = () => {
 	if (velocity < 5) {
 		winContainer.style.display = 'block';
 	} else {
 		loseContainer.style.display = 'block';
 	}
+
+	setTimeout(() => {
+		graphContainer.style.display = 'flex';
+		new Chart('myChart', {
+			type: 'line',
+			data: {
+				labels: xValues,
+				datasets: [
+					{
+						data: altitudeArr,
+						borderColor: 'red',
+						fill: false,
+						label: 'altitude',
+					},
+					{
+						data: velocityArr,
+						borderColor: 'green',
+						fill: false,
+						label: 'velocity',
+					},
+					{
+						data: fuelArr,
+						borderColor: 'blue',
+						fill: false,
+						label: 'fuel',
+					},
+				],
+			},
+			options: {
+				legend: {
+					display: true,
+				},
+			},
+		});
+	}, 5000);
 };
