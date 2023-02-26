@@ -227,6 +227,19 @@ img {
 				}
 			}
 		}
+
+		.final-message {
+			display: none;
+			position: absolute;
+			top: 30%;
+			right: 50%;
+			transform: translate(50%, 30%);
+
+			.heading {
+				font-size: 3rem;
+				color: white;
+			}
+		}
 	}
 }
 

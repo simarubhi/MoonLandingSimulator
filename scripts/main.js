@@ -26,6 +26,10 @@ const altText = document.querySelector('.stat-text.alt');
 const velText = document.querySelector('.stat-text.vel');
 const fuelText = document.querySelector('.stat-text.fuel');
 
+// Final message containers
+const winContainer = document.querySelector('.win-container');
+const loseContainer = document.querySelector('.lose-container');
+
 // Stat variables for all screens
 let altitude = 1000;
 let velocity = 40;
@@ -170,8 +174,8 @@ const endGameTransition = () => {
 
 const gameEnded = () => {
 	if (velocity < 5) {
-		console.log('you win!');
+		winContainer.style.display = 'block';
 	} else {
-		console.log('you lose!;');
+		loseContainer.style.display = 'block';
 	}
 };

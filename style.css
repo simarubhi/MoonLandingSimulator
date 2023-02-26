@@ -247,6 +247,19 @@ img {
 .container .play-screen .fuel-choice-container .fuel-submit:hover, .container .play-screen .fuel-choice-container .fuel-submit:focus, .container .play-screen .fuel-choice-container .fuel-submit:active {
   cursor: pointer;
 }
+.container .play-screen .final-message {
+  display: none;
+  position: absolute;
+  top: 30%;
+  right: 50%;
+  -webkit-transform: translate(50%, 30%);
+      -ms-transform: translate(50%, 30%);
+          transform: translate(50%, 30%);
+}
+.container .play-screen .final-message .heading {
+  font-size: 3rem;
+  color: white;
+}
 
 @-webkit-keyframes backgroundScroll {
   0% {
