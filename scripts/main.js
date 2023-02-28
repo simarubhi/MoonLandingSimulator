@@ -36,9 +36,6 @@ let altitude = 1000;
 let velocity = 40;
 let fuel = 25;
 
-// let altitudeArr = [altitude];
-// let velocityArr = [velocity];
-// let fuelArr = [fuel];
 let altitudeArr = [];
 let velocityArr = [];
 let fuelArr = [];
